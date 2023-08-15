@@ -79,7 +79,7 @@ describe('inventory', () => {
     //     });
     // });
 
-    it('C350639: Verify the ability to see holdings with 1000+ items: CASE 1 (folijet)',
+    it('C350640: Verify the ability to see holdings with 1000+ items: CASE 2 (folijet)',
       { tags: [TestTypes.smoke, DevTeams.folijet] }, () => {
         InventorySearchAndFilter.searchByParameter('Keyword (title, contributor, identifier, HRID, UUID)', testData.instanceTitle);
         InstanceRecordView.verifyInstanceRecordViewOpened();
