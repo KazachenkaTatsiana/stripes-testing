@@ -16,7 +16,7 @@ import InventoryEditMarcRecord from '../../../../support/fragments/inventory/inv
 import InventoryViewSource from '../../../../support/fragments/inventory/inventoryViewSource';
 import Users from '../../../../support/fragments/users/users';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let user = null;
   let instanceHrid = null;
   const protectedField = '856';

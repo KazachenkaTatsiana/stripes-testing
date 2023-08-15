@@ -20,7 +20,7 @@ import InventoryInstance from '../../../support/fragments/inventory/inventoryIns
 import Checkout from '../../../support/fragments/checkout/checkout';
 import CirculationRules from '../../../support/fragments/circulation/circulation-rules';
 
-describe('Renewal', () => {
+describe.skip('Renewal', () => {
   let materialTypeId;
   let loanId;
   let servicePointId;

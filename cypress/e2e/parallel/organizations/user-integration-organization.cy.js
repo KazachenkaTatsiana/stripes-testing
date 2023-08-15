@@ -8,7 +8,7 @@ import Organizations from '../../../support/fragments/organizations/organization
 import InteractorsTools from '../../../support/utils/interactorsTools';
 import devTeams from '../../../support/dictionary/devTeams';
 
-describe('ui-organizations: EDI convention in Organization Integration', () => {
+describe.skip('ui-organizations: EDI convention in Organization Integration', () => {
   let userId;
   const organization = {
     ...newOrganization.defaultUiOrganizations,

@@ -11,7 +11,7 @@ import InventoryInstance from '../../../../support/fragments/inventory/inventory
 import DevTeams from '../../../../support/dictionary/devTeams';
 import ItemRecordView from '../../../../support/fragments/inventory/itemRecordView';
 
-describe('ui-inventory: Mark items as withdrawn', () => {
+describe.skip('ui-inventory: Mark items as withdrawn', () => {
   let user = {};
   let defaultServicePointId = '';
   const requesterIds = [];

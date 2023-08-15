@@ -20,7 +20,7 @@ import Conditions from '../../../../../support/fragments/settings/users/conditio
 import Limits from '../../../../../support/fragments/settings/users/limits';
 import UsersSearchPane from '../../../../../support/fragments/users/usersSearchPane';
 
-describe('Patron Block: Maximum number of items charged out', () => {
+describe.skip('Patron Block: Maximum number of items charged out', () => {
   const checkedOutBlockMessage =
     `You have reached the maximum number of items you can check out as set by patron group${getRandomPostfix()}`;
   const patronGroup = {

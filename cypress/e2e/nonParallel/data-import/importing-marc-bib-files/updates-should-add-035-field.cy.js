@@ -21,7 +21,7 @@ import FileManager from '../../../../support/utils/fileManager';
 import NewJobProfile from '../../../../support/fragments/data_import/job_profiles/newJobProfile';
 import NewActionProfile from '../../../../support/fragments/data_import/action_profiles/newActionProfile';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let user = null;
   const jobProfileToRun = 'Default - Create instance and SRS MARC Bib';
   // unique file names

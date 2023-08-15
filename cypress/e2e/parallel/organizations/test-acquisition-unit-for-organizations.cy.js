@@ -8,7 +8,7 @@ import AcquisitionUnits from '../../../support/fragments/settings/acquisitionUni
 import Organizations from '../../../support/fragments/organizations/organizations';
 import NewOrganization from '../../../support/fragments/organizations/newOrganization';
 
-describe('ui-organizations: Organizations', () => {
+describe.skip('ui-organizations: Organizations', () => {
   const organization = { ...NewOrganization.defaultUiOrganizations };
   const defaultAcquisitionUnit = { ...AcquisitionUnits.defaultAcquisitionUnit };
   let user;

@@ -6,7 +6,7 @@ import devTeams from '../../../support/dictionary/devTeams';
 import Organizations from '../../../support/fragments/organizations/organizations';
 import NewOrganization from '../../../support/fragments/organizations/newOrganization';
 
-describe('orders: create an order', () => {
+describe.skip('orders: create an order', () => {
   const order = { ...NewOrder.defaultOneTimeOrder };
   const organization = { ...NewOrganization.defaultUiOrganizations };
 

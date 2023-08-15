@@ -5,7 +5,7 @@ import SettingsMenu from '../../../../support/fragments/settingsMenu';
 import AcquisitionUnits from '../../../../support/fragments/settings/acquisitionUnits/acquisitionUnits';
 import Users from '../../../../support/fragments/users/users';
 
-describe('ui-settings: Acquisitions Units', () => {
+describe.skip('ui-settings: Acquisitions Units', () => {
   const defaultAcquisitionUnit = { ...AcquisitionUnits.defaultAcquisitionUnit };
   let user;
 

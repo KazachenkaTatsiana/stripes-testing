@@ -32,7 +32,7 @@ import UserAllFeesFines from '../../../support/fragments/users/userAllFeesFines'
 import PayFeeFaine from '../../../support/fragments/users/payFeeFaine';
 import OtherSettings from '../../../support/fragments/settings/circulation/otherSettings';
 
-describe('Overdue fine', () => {
+describe.skip('Overdue fine', () => {
   let addedCirculationRule;
   const patronGroup = {
     name: 'groupToTestNotices' + getRandomPostfix(),

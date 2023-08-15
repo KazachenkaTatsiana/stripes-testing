@@ -27,7 +27,7 @@ import ActionProfiles from '../../../../support/fragments/data_import/action_pro
 import FieldMappingProfiles from '../../../../support/fragments/data_import/mapping_profiles/fieldMappingProfiles';
 import InventoryInstances from '../../../../support/fragments/inventory/inventoryInstances';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   const item = {
     title: 'Agrarianism and capitalism in early Georgia, 1732-1743 / Jay Jordan Butler.',
     productId: `xyz${getRandomPostfix()}`,

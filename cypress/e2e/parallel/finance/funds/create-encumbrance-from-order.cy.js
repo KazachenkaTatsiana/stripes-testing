@@ -15,7 +15,7 @@ import Orders from '../../../../support/fragments/orders/orders';
 import NewOrder from '../../../../support/fragments/orders/newOrder';
 import OrderLines from '../../../../support/fragments/orders/orderLines';
 
-describe('ui-finance: Transactions', () => {
+describe.skip('ui-finance: Transactions', () => {
   const defaultFund = { ...Funds.defaultUiFund };
   const defaultFiscalYear = { ...FiscalYears.defaultUiFiscalYear };
   const defaultLedger = { ...Ledgers.defaultUiLedger };

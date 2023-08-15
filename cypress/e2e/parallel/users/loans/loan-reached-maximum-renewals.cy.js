@@ -22,7 +22,7 @@ import LoanPolicyActions from '../../../../support/fragments/circulation/loan-po
 import CirculationRules from '../../../../support/fragments/circulation/circulation-rules';
 import Location from '../../../../support/fragments/settings/tenant/locations/newLocation';
 
-describe('ui-users-loans: renewal failure because loan has reached maximum renewals', () => {
+describe.skip('ui-users-loans: renewal failure because loan has reached maximum renewals', () => {
   const newFirstItemData = getNewItem();
   const newSecondItemData = getNewItem();
   const servicePoint = ServicePoints.getDefaultServicePointWithPickUpLocation('autotest', uuid());

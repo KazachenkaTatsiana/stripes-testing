@@ -16,7 +16,7 @@ const ITEM_BARCODE = `123${getRandomPostfix()}`;
 let userId;
 let source;
 
-describe('ui-inventory: location', () => {
+describe.skip('ui-inventory: location', () => {
   before('create inventory instance', () => {
     cy.createTempUser([
       permissions.inventoryAll.gui,

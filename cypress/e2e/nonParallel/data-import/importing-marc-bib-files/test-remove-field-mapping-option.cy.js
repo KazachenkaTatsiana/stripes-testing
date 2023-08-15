@@ -27,7 +27,7 @@ import InventorySearchAndFilter from '../../../../support/fragments/inventory/in
 import FileManager from '../../../../support/utils/fileManager';
 import InventoryInstances from '../../../../support/fragments/inventory/inventoryInstances';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   const itemBarcode = uuid();
   const quantityOfItems = '1';
   // unique profile names

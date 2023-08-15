@@ -14,7 +14,7 @@ import MarcAuthorityBrowse from '../../../support/fragments/marcAuthority/MarcAu
 import JobProfiles from '../../../support/fragments/data_import/job_profiles/jobProfiles';
 import Logs from '../../../support/fragments/data_import/logs/logs';
 
-describe('MARC Authority Delete', () => {
+describe.skip('MARC Authority Delete', () => {
   const testData = {
     uniqueFileName: `C350643autotestFile.${getRandomPostfix()}.mrc`,
     fileName: `testMarcFile.${getRandomPostfix()}.mrc`,

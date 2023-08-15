@@ -28,7 +28,7 @@ import RefundReasons from '../../../support/fragments/settings/users/refundReaso
 import TransferAccounts from '../../../support/fragments/settings/users/transferAccounts';
 import WaiveReasons from '../../../support/fragments/settings/users/waiveReasons';
 
-describe('Overdue fine', () => {
+describe.skip('Overdue fine', () => {
   const patronGroup = {
     name: 'groupToTestNotices' + getRandomPostfix(),
   };

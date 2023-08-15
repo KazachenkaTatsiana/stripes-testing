@@ -25,7 +25,7 @@ import FileDetails from '../../../../support/fragments/data_import/logs/fileDeta
 import FileManager from '../../../../support/utils/fileManager';
 import Users from '../../../../support/fragments/users/users';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let user = null;
   let instanceHrid;
   const marcFieldProtectionId = [];

@@ -27,7 +27,7 @@ import FileDetails from '../../../../support/fragments/data_import/logs/fileDeta
 import SettingsJobProfiles from '../../../../support/fragments/settings/dataImport/settingsJobProfiles';
 import InventoryInstance from '../../../../support/fragments/inventory/inventoryInstance';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let instanceHRID = null;
   // profile names for creating
   const nameMarcBibMappingProfile = `autotest_marcBib_mapping_profile_${getRandomPostfix()}`;

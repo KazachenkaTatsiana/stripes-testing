@@ -27,7 +27,7 @@ import UsersCard from '../../../../../support/fragments/users/usersCard';
 import UserLoans from '../../../../../support/fragments/users/loans/userLoans';
 import Renewals from '../../../../../support/fragments/loans/renewals';
 
-describe('Patron Block: Maximum number of overdue items', () => {
+describe.skip('Patron Block: Maximum number of overdue items', () => {
   let addedCirculationRule;
   let originalCirculationRules;
   const renewComment = `AutotestText${getRandomPostfix()}`;

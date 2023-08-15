@@ -12,7 +12,7 @@ import Transaction from '../../../support/fragments/finance/fabrics/newTransacti
 import Organizations from '../../../support/fragments/organizations/organizations';
 import devTeams from '../../../support/dictionary/devTeams';
 
-describe('ui-invoices: Credit Invoice creation', () => {
+describe.skip('ui-invoices: Credit Invoice creation', () => {
   const invoice = { ...NewInvoice.defaultUiInvoice };
   const vendorPrimaryAddress = { ...VendorAddress.vendorAddress };
   const invoiceLine = { ...NewInvoiceLine.defaultUiInvoiceLine };

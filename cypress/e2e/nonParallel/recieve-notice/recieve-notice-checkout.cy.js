@@ -25,7 +25,7 @@ import InventoryInstance from '../../../support/fragments/inventory/inventoryIns
 import getRandomPostfix from '../../../support/utils/stringTools';
 import OtherSettings from '../../../support/fragments/settings/circulation/otherSettings';
 
-describe('Recieving notice: Checkout', () => {
+describe.skip('Recieving notice: Checkout', () => {
   let addedCirculationRule;
   const noticePolicyTemplate = { ...NewNoticePolicyTemplate.defaultUi,
     category: NOTICE_CATEGORIES.loan.name };

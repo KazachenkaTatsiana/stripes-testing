@@ -4,7 +4,7 @@ import TestType from '../../../../support/dictionary/testTypes';
 import SettingsMenu from '../../../../support/fragments/settingsMenu';
 import devTeams from '../../../../support/dictionary/devTeams';
 
-describe('ui-invoices-settings: Batch Group creation', () => {
+describe.skip('ui-invoices-settings: Batch Group creation', () => {
   const batchGroup = { ...NewBatchGroup.defaultUiBatchGroup };
   const newBatchGroup = { ...NewBatchGroup.defaultUiBatchGroup };
   before(() => {

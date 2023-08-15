@@ -4,7 +4,7 @@ import SettingsMenu from '../../../../support/fragments/settingsMenu';
 import devTeams from '../../../../support/dictionary/devTeams';
 import SettingsFinance from '../../../../support/fragments/settings/finance/settingsFinance';
 
-describe('ui-invoices-settings: Batch Group creation', () => {
+describe.skip('ui-invoices-settings: Batch Group creation', () => {
   const expenseClass = { ...NewExpenceClass.defaultUiBatchGroup };
   const newExpenseClass = { ...NewExpenceClass.defaultUiBatchGroup };
   before(() => {

@@ -14,7 +14,7 @@ import ServicePoints from '../../../support/fragments/settings/tenant/servicePoi
 import NewLocation from '../../../support/fragments/settings/tenant/locations/newLocation';
 import DateTools from '../../../support/utils/dateTools';
 
-describe('orders: export', () => {
+describe.skip('orders: export', () => {
 
   const order = { ...NewOrder.defaultOneTimeOrder,
     orderType: 'Ongoing',

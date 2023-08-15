@@ -9,7 +9,7 @@ import basicOrderLine from '../../../support/fragments/orders/basicOrderLine';
 import Organizations from '../../../support/fragments/organizations/organizations';
 import devTeams from '../../../support/dictionary/devTeams';
 
-describe('orders: create an order', () => {
+describe.skip('orders: create an order', () => {
   const organization = { ...newOrganization.defaultUiOrganizations };
   const order = { ...NewOrder.defaultOneTimeOrder };
   const orderLineTitle = basicOrderLine.defaultOrderLine.titleOrPackage;

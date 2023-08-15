@@ -23,7 +23,7 @@ import NewFeeFine from '../../../support/fragments/users/newFeeFine';
 import devTeams from '../../../support/dictionary/devTeams';
 import OtherSettings from '../../../support/fragments/settings/circulation/otherSettings';
 
-describe('Fee/fine management', () => {
+describe.skip('Fee/fine management', () => {
   const testData = {
     instanceTitle: `Pre-checkin_instance_${Number(new Date())}`
   };

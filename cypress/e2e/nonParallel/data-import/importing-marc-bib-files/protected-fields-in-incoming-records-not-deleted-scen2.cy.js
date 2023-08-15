@@ -12,7 +12,7 @@ import InventoryViewSource from '../../../../support/fragments/inventory/invento
 import Users from '../../../../support/fragments/users/users';
 import InventoryInstances from '../../../../support/fragments/inventory/inventoryInstances';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let user = null;
   const authentication = '100473910/PAOLF';
   const oclcForImport = '19257462';

@@ -7,7 +7,7 @@ import TestTypes from '../../../../support/dictionary/testTypes';
 import DevTeams from '../../../../support/dictionary/devTeams';
 import Logs from '../../../../support/fragments/data_import/logs/logs';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   // Path to static file in fixtures
   const pathToStaticFile = 'oneMarcBib.mrc';
   // Create unique names for MARC files

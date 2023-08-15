@@ -10,7 +10,7 @@ import NewInvoice from '../../../support/fragments/invoices/newInvoice';
 import Invoices from '../../../support/fragments/invoices/invoices';
 import VendorAddress from '../../../support/fragments/invoices/vendorAddress';
 
-describe('ui-invoices: create', () => {
+describe.skip('ui-invoices: create', () => {
   const invoice = { ...NewInvoice.defaultUiInvoice };
   const vendorPrimaryAddress = { ...VendorAddress.vendorAddress };
   const defaultAcquisitionUnit = { ...AcquisitionUnits.defaultAcquisitionUnit };

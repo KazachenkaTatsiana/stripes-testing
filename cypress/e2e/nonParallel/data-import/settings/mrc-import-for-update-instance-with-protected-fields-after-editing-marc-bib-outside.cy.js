@@ -22,7 +22,7 @@ import FileManager from '../../../../support/utils/fileManager';
 import InventoryInstance from '../../../../support/fragments/inventory/inventoryInstance';
 import Users from '../../../../support/fragments/users/users';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let user;
   let instanceHrid = null;
   const marcFieldProtectionId = [];

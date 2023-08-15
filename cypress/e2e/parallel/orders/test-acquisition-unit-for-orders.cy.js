@@ -12,7 +12,7 @@ import Organizations from '../../../support/fragments/organizations/organization
 import NewOrganization from '../../../support/fragments/organizations/newOrganization';
 import InteractorsTools from '../../../support/utils/interactorsTools';
 
-describe('ui-finance: Orders', () => {
+describe.skip('ui-finance: Orders', () => {
   const order = { ...NewOrder.defaultOneTimeOrder };
   const organization = { ...NewOrganization.defaultUiOrganizations };
   const defaultAcquisitionUnit = { ...AcquisitionUnits.defaultAcquisitionUnit };

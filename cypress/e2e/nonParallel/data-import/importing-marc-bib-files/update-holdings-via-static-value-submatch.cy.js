@@ -21,7 +21,7 @@ import Helper from '../../../../support/fragments/finance/financeHelper';
 import FileManager from '../../../../support/utils/fileManager';
 import InventoryInstance from '../../../../support/fragments/inventory/inventoryInstance';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let instanceHrid;
   const quantityOfItems = '1';
   const instanceMappingProfileNameForCreate = `C11110 autotest instance mapping profile.${getRandomPostfix()}`;

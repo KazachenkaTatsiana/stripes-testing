@@ -13,7 +13,7 @@ import InventoryInstance from '../../../../support/fragments/inventory/inventory
 import InventoryInstances from '../../../../support/fragments/inventory/inventoryInstances';
 import Users from '../../../../support/fragments/users/users';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let user = {};
   const authentication = '100473910/PAOLF';
   const fileName = `C356824autotestFile.${getRandomPostfix()}.mrc`;

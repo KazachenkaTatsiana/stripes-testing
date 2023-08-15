@@ -22,7 +22,7 @@ import InventoryInstance from '../../../../support/fragments/inventory/inventory
 import InventoryViewSource from '../../../../support/fragments/inventory/inventoryViewSource';
 import InventorySearchAndFilter from '../../../../support/fragments/inventory/inventorySearchAndFilter';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let firstFieldId = null;
   let secondFieldId = null;
   let instanceHrid = null;

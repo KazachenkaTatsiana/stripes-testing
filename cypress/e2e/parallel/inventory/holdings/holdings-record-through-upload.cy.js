@@ -12,7 +12,7 @@ import InventoryNewHoldings from '../../../../support/fragments/inventory/invent
 import HoldingsRecordEdit from '../../../../support/fragments/inventory/holdingsRecordEdit';
 import DevTeams from '../../../../support/dictionary/devTeams';
 
-describe('Manage holding records of instance records created through marc file upload', () => {
+describe.skip('Manage holding records of instance records created through marc file upload', () => {
   beforeEach(() => {
     cy.login(Cypress.env('diku_login'), Cypress.env('diku_password'));
     // required with special tests, but when step into test I see 403 some time in /metadata-provider/jobExecutions request

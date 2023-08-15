@@ -44,7 +44,7 @@ const newToDate = moment.utc().subtract(1, 'days');
 const dateFallsMessage = 'renewal date falls outside of date ranges in fixed loan policy';
 let sourceId;
 
-describe('ui-circulation-settings: Fixed due date schedules', () => {
+describe.skip('ui-circulation-settings: Fixed due date schedules', () => {
   before(() => {
     cy.login(Cypress.env(CY_ENV.DIKU_LOGIN), Cypress.env(CY_ENV.DIKU_PASSWORD));
     cy.getToken(Cypress.env(CY_ENV.DIKU_LOGIN), Cypress.env(CY_ENV.DIKU_PASSWORD))

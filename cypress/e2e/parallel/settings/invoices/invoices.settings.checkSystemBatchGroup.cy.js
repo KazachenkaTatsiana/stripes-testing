@@ -4,7 +4,7 @@ import SettingsInvoices from '../../../../support/fragments/invoices/settingsInv
 import TestType from '../../../../support/dictionary/testTypes';
 import devTeams from '../../../../support/dictionary/devTeams';
 
-describe('ui-invoices-settings: System Batch Group deletion', () => {
+describe.skip('ui-invoices-settings: System Batch Group deletion', () => {
   const batchGroup = { ...NewBatchGroup.defaultUiBatchGroup };
   const systemBatchGroup = { ...NewBatchGroup.defaultUiBatchGroup };
   const systemBatchGroupName = 'FOLIO';

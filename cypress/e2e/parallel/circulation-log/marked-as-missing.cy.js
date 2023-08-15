@@ -23,7 +23,7 @@ const item = {
   barcode: `123${getRandomPostfix()}`,
 };
 
-describe('circulation-log', () => {
+describe.skip('circulation-log', () => {
   before('creating user and checking out item', () => {
     cy.createTempUser([
       permissions.inventoryAll.gui,

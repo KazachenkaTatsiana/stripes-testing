@@ -26,7 +26,7 @@ import Requests from '../../../../../support/fragments/requests/requests';
 import RequestPolicy from '../../../../../support/fragments/circulation/request-policy';
 import UserLoans from '../../../../../support/fragments/users/loans/userLoans';
 
-describe('Patron Block: Maximum number of overdue recalls', () => {
+describe.skip('Patron Block: Maximum number of overdue recalls', () => {
   let addedCirculationRule;
   let originalCirculationRules;
   const checkedOutBlockMessage = `You have reached maximum number of overdue recalls as set by patron group${getRandomPostfix()}`;

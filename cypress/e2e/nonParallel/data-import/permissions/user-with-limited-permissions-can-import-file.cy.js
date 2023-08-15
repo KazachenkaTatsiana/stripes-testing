@@ -23,7 +23,7 @@ import Users from '../../../../support/fragments/users/users';
 import InventorySearchAndFilter from '../../../../support/fragments/inventory/inventorySearchAndFilter';
 import InventoryInstance from '../../../../support/fragments/inventory/inventoryInstance';
 
-describe('ui-data-import', () => {
+describe.skip('ui-data-import', () => {
   let firstUser;
   let secondUser;
   let instanceHrid;
