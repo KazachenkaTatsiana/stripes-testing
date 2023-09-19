@@ -95,7 +95,7 @@ Cypress.Commands.add('createTempUser', (permissions = [], patronGroupName) => {
           ...Users.defaultUser,
           patronGroup: userGroupdId,
           username: userProperties.username,
-          type: 'patron',
+          type: 'staff',
           barcode: uuid(),
           personal: { ...Users.defaultUser.personal, lastName: userProperties.username },
         }).then((newUserProperties) => {
