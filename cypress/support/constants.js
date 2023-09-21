@@ -116,6 +116,7 @@ export const FOLIO_RECORD_TYPE = {
   INVOICE: 'Invoice',
   MARCBIBLIOGRAPHIC: 'MARC Bibliographic',
   MARCAUTHORITY: 'MARC Authority',
+  EDIFACT: 'Edifact',
 };
 
 export const PAYMENT_METHOD = {
