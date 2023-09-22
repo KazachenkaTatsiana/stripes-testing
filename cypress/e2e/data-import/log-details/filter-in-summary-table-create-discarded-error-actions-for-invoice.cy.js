@@ -75,7 +75,7 @@ describe('data-import', () => {
       () => {
         // create Field mapping profile
         FieldMappingProfiles.waitLoading();
-        FieldMappingProfiles.createInvoiceMappingProfile(mappingProfile, profileForDuplicate);
+        FieldMappingProfiles.duplicateInvoiceMappingProfile(mappingProfile, profileForDuplicate);
         FieldMappingProfiles.checkMappingProfilePresented(mappingProfile.name);
 
         // create Action profile and link it to Field mapping profile

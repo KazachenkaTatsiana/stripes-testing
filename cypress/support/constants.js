@@ -116,12 +116,13 @@ export const FOLIO_RECORD_TYPE = {
   INVOICE: 'Invoice',
   MARCBIBLIOGRAPHIC: 'MARC Bibliographic',
   MARCAUTHORITY: 'MARC Authority',
-  EDIFACT: 'Edifact',
 };
 
 export const PAYMENT_METHOD = {
   CASH: '"Cash"',
   CREDIT_CARD: '"Credit Card"',
+  EFT: '"EFT"',
+  OTHER: '"Other"',
 };
 
 export const BATCH_GROUP = {

@@ -92,10 +92,17 @@ export default {
     cy.expect(MultiColumnListCell(mappingProfileName).exists());
   },
 
-  createInvoiceMappingProfile: (mappingProfile, defaultProfile) => {
+  duplicateInvoiceMappingProfile: (mappingProfile, defaultProfile) => {
     search(defaultProfile);
     duplicateMappingProfile();
     cy.wait(1000);
+    NewFieldMappingProfile.fillInvoiceMappingProfile(mappingProfile);
+    closeViewModeForMappingProfile(mappingProfile.name);
+    cy.expect(actionsButton.exists());
+  },
+
+  createInvoiceMappingProfile: (mappingProfile) => {
+    openNewMappingProfileForm();
     NewFieldMappingProfile.fillInvoiceMappingProfile(mappingProfile);
     closeViewModeForMappingProfile(mappingProfile.name);
     cy.expect(actionsButton.exists());

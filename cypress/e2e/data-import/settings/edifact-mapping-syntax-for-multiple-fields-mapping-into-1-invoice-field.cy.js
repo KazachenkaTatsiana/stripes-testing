@@ -121,7 +121,7 @@ describe('data-import', () => {
       () => {
         // create Field mapping profiles
         FieldMappingProfiles.waitLoading();
-        FieldMappingProfiles.createInvoiceMappingProfile(
+        FieldMappingProfiles.duplicateInvoiceMappingProfile(
           collectionOfProfiles[0].mappingProfile,
           profileForDuplicate,
         );
@@ -129,7 +129,7 @@ describe('data-import', () => {
           collectionOfProfiles[0].mappingProfile.name,
         );
 
-        FieldMappingProfiles.createInvoiceMappingProfile(
+        FieldMappingProfiles.duplicateInvoiceMappingProfile(
           collectionOfProfiles[1].mappingProfile,
           collectionOfProfiles[0].mappingProfile.name,
         );

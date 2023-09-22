@@ -269,6 +269,27 @@ const getDefaultItemMappingProfile = (name) => {
   return defaultItemMappingProfile;
 };
 
+const fillInvoiceDate = (date) => {
+  cy.do(TextField('Invoice date*').fillIn(date));
+  waitLoading();
+};
+const fillVendorInvoiceNumber = (number) => cy.do(TextField('Vendor invoice number*').fillIn(number));
+const fillVendorName = (vendorName) => {
+  cy.do([
+    organizationLookUpButton.click(),
+    organizationModal.find(SearchField({ id: 'input-record-search' })).fillIn(vendorName),
+    organizationModal.find(searchButton).click(),
+  ]);
+  selectFromResultsList();
+};
+const fillAccountingCode = (code) => cy.do(Accordion('Vendor information').find(TextField('Accounting code')).fillIn(code));
+const fillQuantity = (quantity) => cy.do(TextField('Quantity*').fillIn(quantity));
+const fillSubTotal = (number) => cy.do(TextField('Sub-total*').fillIn(number));
+const fillPaymentMethod = (method) => {
+  cy.do(Accordion('Extended information').find(paymentMethodField).fillIn(method));
+  waitLoading();
+};
+
 export default {
   getDefaultInstanceMappingProfile,
   getDefaultHoldingsMappingProfile,
@@ -289,6 +310,13 @@ export default {
   addVolume,
   selectFromResultsList,
   waitLoading,
+  fillInvoiceDate,
+  fillVendorInvoiceNumber,
+  fillVendorName,
+  fillAccountingCode,
+  fillQuantity,
+  fillSubTotal,
+  fillPaymentMethod,
 
   fillMappingProfile: (specialMappingProfile = defaultMappingProfile) => {
     cy.do([
@@ -377,6 +405,9 @@ export default {
       );
     }
     // Invoice information section
+    if (profile.invoiceDate) {
+      fillInvoiceDate(profile.invoiceDate);
+    }
     if (profile.batchGroup) {
       cy.do(batchGroupField.fillIn(profile.batchGroup));
     }
@@ -390,13 +421,24 @@ export default {
       cy.do(TextField('Acquisitions units').fillIn(profile.acquisitionsUnits));
     }
     // Vendor information section
+    if (profile.vendorInvoiceNumber) {
+      fillVendorInvoiceNumber(profile.vendorInvoiceNumber);
+    }
+    if (profile.vendorName) {
+      fillVendorName(profile.vendorName);
+    }
+    if (profile.accountingCode) {
+      fillAccountingCode(profile.accountingCode);
+    }
     if (profile.organizationName) {
       cy.do(organizationLookUpButton.click());
       selectOrganizationByName(profile.organizationName);
     }
+    addVendorReferenceNumber(profile);
     // Extended information section
     if (profile.paymentMethod) {
-      cy.do(paymentMethodField.fillIn(profile.paymentMethod));
+      cy.wait(1000);
+      fillPaymentMethod(profile.paymentMethod);
     }
     if (profile.currency) {
       cy.do(currencyField.fillIn(`"${profile.currency}"`));
@@ -424,8 +466,25 @@ export default {
     if (profile.subscriptionEndDate) {
       cy.do(TextField('Subscription end date').fillIn(profile.subscriptionEndDate));
     }
+    if (profile.quantity) {
+      fillQuantity(profile.quantity);
+    }
+    if (profile.subTotal) {
+      fillSubTotal(profile.subTotal);
+    }
     if (profile.comment) {
       cy.do(TextField('Comment').fillIn(profile.comment));
+    }
+    if (profile.fundDistributionSource) {
+      cy.do([
+        Select({
+          name: 'profile.mappingDetails.mappingFields[26].subfields.0.fields.14.value',
+        }).focus(),
+        Select({
+          name: 'profile.mappingDetails.mappingFields[26].subfields.0.fields.14.value',
+        }).choose(profile.fundDistributionSource),
+      ]);
+      waitLoading();
     }
     cy.do(saveButton.click());
   },
@@ -585,10 +644,7 @@ export default {
   fillItemIdentifier: (identifier) => cy.do(TextField('Item identifier').fillIn(identifier)),
   fillAccessionNumber: (number) => cy.do(TextField('Accession number').fillIn(number)),
   fillCopyNumber: (number) => cy.do(TextField('Copy number').fillIn(number)),
-  fillVendorInvoiceNumber: (number) => cy.do(TextField('Vendor invoice number*').fillIn(number)),
   fillDescription: (text) => cy.do(TextField('Description*').fillIn(text)),
-  fillQuantity: (quantity) => cy.do(TextField('Quantity*').fillIn(quantity)),
-  fillSubTotal: (number) => cy.do(TextField('Sub-total*').fillIn(number)),
 
   fillMappingProfileForUpdatesMarc: (specialMappingProfile = defaultMappingProfile) => {
     cy.do([
@@ -787,11 +843,6 @@ export default {
     waitLoading();
   },
 
-  fillPaymentMethod: (method) => {
-    cy.do(paymentMethodField.fillIn(method));
-    waitLoading();
-  },
-
   addItemNotes: (noteType, note, staffOnly) => {
     const noteFieldName = 'profile.mappingDetails.mappingFields[25].repeatableFieldAction';
     const selectName =
@@ -828,20 +879,6 @@ export default {
 
   fillCurrency: (currency) => {
     cy.do(currencyField.fillIn(currency));
-    waitLoading();
-  },
-
-  fillVendorName: (vendorName) => {
-    cy.do([
-      organizationLookUpButton.click(),
-      SearchField({ id: 'input-record-search' }).fillIn(vendorName),
-      searchButton.click(),
-    ]);
-    selectFromResultsList();
-  },
-
-  fillInvoiceDate: (date) => {
-    cy.do(TextField('Invoice date*').fillIn(date));
     waitLoading();
   },
 

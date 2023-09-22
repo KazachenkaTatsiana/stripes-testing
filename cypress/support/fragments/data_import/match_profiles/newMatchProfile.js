@@ -30,6 +30,7 @@ const optionsList = {
   instanceStatusTerm: 'Admin data: Instance status term',
   holdingsType: 'Admin data: Holdings type',
   identifierOCLC: 'Identifier: OCLC',
+  suppressFromDiscovery: 'Admin data: Suppress from discovery',
 };
 
 function fillExistingRecordFields(value = '', selector) {
