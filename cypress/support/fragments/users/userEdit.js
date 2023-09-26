@@ -259,8 +259,7 @@ export default {
   },
 
   verifyUserPermissionsAccordion() {
-    cy.expect(permissionsAccordion.exists());
-    cy.expect(permissionsAccordion.has({ open: false }));
+    cy.expect([permissionsAccordion.exists(), permissionsAccordion.has({ open: false })]);
   },
 
   permissionsCount() {
@@ -272,15 +271,13 @@ export default {
   },
 
   openSelectPermissions() {
-    cy.do(permissionsAccordion.clickHeader());
-    cy.do(addPermissionsButton.click());
+    cy.do([permissionsAccordion.clickHeader(), addPermissionsButton.click()]);
     cy.expect(selectPermissionsModal.exists());
     this.permissionsCount();
   },
 
   searchForPermission(permission) {
-    cy.do(permissionsSearch.fillIn(permission));
-    cy.do(searchButton.click());
+    cy.do([permissionsSearch.fillIn(permission), searchButton.click()]);
   },
 
   verifyPermissionsFiltered(permission) {
