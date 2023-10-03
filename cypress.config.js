@@ -84,6 +84,9 @@ module.exports = defineConfig({
         },
       });
 
+      const str = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
+      console.log(str);
+
       const enhancedConfig = {
         env: {
           ...config.env, // 👈🏻 preserve the original env
@@ -91,14 +94,22 @@ module.exports = defineConfig({
         },
       };
 
+      const str1 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
+      console.log(str1);
       // eslint-disable-next-line spaced-comment
       //const result = await cloudPlugin(on, enhancedConfig);
       // eslint-disable-next-line spaced-comment
       //return result;
       const configCloud = cloudPlugin(on, enhancedConfig);
 
+      const str2 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
+      console.log(str2);
+
       // eslint-disable-next-line global-require
       const result = await require('cypress-testrail-simple/src/plugin')(on, configCloud);
+
+      const str3 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
+      console.log(str3);
 
       // await cloudPlugin(on, config);
 
