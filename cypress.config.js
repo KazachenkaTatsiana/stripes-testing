@@ -34,6 +34,12 @@ module.exports = defineConfig({
       console.log(str77);
 
       console.log('--------->>>');
+      console.log(
+        'TESTRAIL_HOST' in process.env ||
+          'TESTRAIL_USERNAME' in process.env ||
+          'TESTRAIL_PASSWORD' in process.env ||
+          'TESTRAIL_PROJECTID' in process.env,
+      );
 
       console.log(
         'TESTRAIL_HOST' in config.env ||
