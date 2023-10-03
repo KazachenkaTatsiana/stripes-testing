@@ -32,6 +32,9 @@ module.exports = defineConfig({
     async setupNodeEvents(on, config) {
       const str = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
       console.log(str);
+
+      const str0 = JSON.stringify(config, null, 4); // (Optional) beautiful indented output.
+      console.log(str0);
       allureWriter(on, config);
 
       on('task', {
