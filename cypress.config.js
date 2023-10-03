@@ -30,6 +30,9 @@ module.exports = defineConfig({
   },
   e2e: {
     async setupNodeEvents(on, config) {
+      const str77 = JSON.stringify(process.env, null, 4); // (Optional) beautiful indented output.
+      console.log(str77);
+
       console.log('--------->>>');
 
       console.log(
@@ -47,7 +50,7 @@ module.exports = defineConfig({
       const str0 = JSON.stringify(config, null, 4); // (Optional) beautiful indented output.
       console.log(str0);
       allureWriter(on, config);
-
+      config.env.DEBUG = 'cypress-testrail-simple';
       on('task', {
         async findFiles(mask) {
           if (!mask) {
