@@ -48,7 +48,7 @@ module.exports = defineConfig({
           'TESTRAIL_PROJECTID' in config.env,
       );
 
-      if ('TESTRAIL_PROJECTID' in process.env) {
+      if ('TESTRAIL_PROJECTID' in process.env && process.env.TESTRAIL_PROJECTID === '') {
         delete process.env.TESTRAIL_PROJECTID;
       }
       console.log(
