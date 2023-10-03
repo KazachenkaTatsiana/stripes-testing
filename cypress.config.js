@@ -30,9 +30,20 @@ module.exports = defineConfig({
   },
   e2e: {
     async setupNodeEvents(on, config) {
+      console.log('--------->>>');
+
+      console.log(
+        'TESTRAIL_HOST' in config.env ||
+          'TESTRAIL_USERNAME' in config.env ||
+          'TESTRAIL_PASSWORD' in config.env ||
+          'TESTRAIL_PROJECTID' in config.env,
+      );
+
+      console.log('--------->>>');
+
       const str = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
       console.log(str);
-
+      console.log('--------->>>');
       const str0 = JSON.stringify(config, null, 4); // (Optional) beautiful indented output.
       console.log(str0);
       allureWriter(on, config);
