@@ -83,12 +83,12 @@ module.exports = defineConfig({
       });
 
       // eslint-disable-next-line spaced-comment
-      await cloudPlugin(on, config);
+      const configCloud = await cloudPlugin(on, config);
 
       // eslint-disable-next-line global-require
-      await require('cypress-testrail-simple/src/plugin')(on, config);
+      const result = await require('cypress-testrail-simple/src/plugin')(on, configCloud);
 
-      return config;
+      return result;
     },
     baseUrl: 'https://folio-testing-cypress-diku.ci.folio.org',
   },
