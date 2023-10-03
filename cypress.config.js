@@ -48,13 +48,20 @@ module.exports = defineConfig({
           'TESTRAIL_PROJECTID' in config.env,
       );
 
+      if ('TESTRAIL_PROJECTID' in process.env) {
+        delete process.env.TESTRAIL_PROJECTID;
+      }
+      console.log(
+        'TESTRAIL_HOST' in process.env ||
+          'TESTRAIL_USERNAME' in process.env ||
+          'TESTRAIL_PASSWORD' in process.env ||
+          'TESTRAIL_PROJECTID' in process.env,
+      );
       console.log('--------->>>');
 
       const str = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
       console.log(str);
       console.log('--------->>>');
-      const str0 = JSON.stringify(config, null, 4); // (Optional) beautiful indented output.
-      console.log(str0);
       allureWriter(on, config);
       config.env.DEBUG = 'cypress-testrail-simple';
       on('task', {
