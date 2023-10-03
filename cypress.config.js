@@ -7,6 +7,7 @@ const fs = require('fs');
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { cloudPlugin } = require('cypress-cloud/plugin');
+// const { testRailPlugin } = require('cypress-testrail-simple/src/plugin');
 
 module.exports = defineConfig({
   retries: {
@@ -84,9 +85,9 @@ module.exports = defineConfig({
       });
 
       await cloudPlugin(on, config);
-
+      // await testRailPlugin(on, config);
       // eslint-disable-next-line global-require
-      // await require('cypress-testrail-simple/src/plugin')(on, config);
+      await require('cypress-testrail-simple/src/plugin')(on, config);
 
       return config;
     },
