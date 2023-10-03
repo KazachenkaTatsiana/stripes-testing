@@ -105,7 +105,7 @@ module.exports = defineConfig({
       console.log(str2);
 
       // eslint-disable-next-line global-require
-      const result = await require('cypress-testrail-simple/src/plugin')(on, configCloud);
+      const result = await require('cypress-testrail-simple/src/plugin')(on, configCloud, true);
 
       const str3 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
       console.log(str3);
@@ -119,7 +119,7 @@ module.exports = defineConfig({
       // };
       // const result = await cloudPlugin(on, enhancedConfig);
       // await require('cypress-testrail-simple/src/plugin')(on, config);
-      return result;
+      return configCloud;
     },
     baseUrl: 'https://folio-testing-cypress-diku.ci.folio.org',
   },
