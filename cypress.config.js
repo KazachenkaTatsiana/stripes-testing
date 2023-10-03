@@ -84,20 +84,21 @@ module.exports = defineConfig({
         },
       });
 
-      // await testRailPlugin(on, config);
+      const configCloud = await cloudPlugin(on, config);
+
       // eslint-disable-next-line global-require
-      await require('cypress-testrail-simple/src/plugin')(on, config);
+      const configTestRail = await require('cypress-testrail-simple/src/plugin')(on, configCloud);
 
       // await cloudPlugin(on, config);
 
-      const enhancedConfig = {
-        env: {
-          ...config.env,
-        },
-      };
-      const result = await cloudPlugin(on, enhancedConfig);
+      // const enhancedConfig = {
+      //  env: {
+      //     ...config.env,
+      //  },
+      // };
+      // const result = await cloudPlugin(on, enhancedConfig);
       // await require('cypress-testrail-simple/src/plugin')(on, config);
-      return result;
+      return configTestRail;
     },
     baseUrl: 'https://folio-testing-cypress-diku.ci.folio.org',
   },
