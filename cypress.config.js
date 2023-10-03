@@ -89,8 +89,7 @@ module.exports = defineConfig({
 
       const enhancedConfig = {
         env: {
-          ...config.env, // 👈🏻 preserve the original env
-          customVariable: 'value',
+          ...config.env,
         },
       };
 
@@ -100,7 +99,7 @@ module.exports = defineConfig({
       //const result = await cloudPlugin(on, enhancedConfig);
       // eslint-disable-next-line spaced-comment
       //return result;
-      const configCloud = cloudPlugin(on, enhancedConfig);
+      const configCloud = cloudPlugin(on, config);
 
       const str2 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
       console.log(str2);
