@@ -5,9 +5,7 @@ const { rmdir, unlink } = require('fs');
 const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const fs = require('fs');
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const { cloudPlugin } = require('cypress-cloud/plugin');
-// const { testRailPlugin } = require('cypress-testrail-simple/src/plugin');
 
 module.exports = defineConfig({
   retries: {
@@ -84,42 +82,13 @@ module.exports = defineConfig({
         },
       });
 
-      const str = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
-      console.log(str);
-
-      const enhancedConfig = {
-        env: {
-          ...config.env,
-        },
-      };
-
-      const str1 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
-      console.log(str1);
-      // eslint-disable-next-line spaced-comment
-      //const result = await cloudPlugin(on, enhancedConfig);
-      // eslint-disable-next-line spaced-comment
-      //return result;
-      const configCloud = cloudPlugin(on, config);
-
-      const str2 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
-      console.log(str2);
-
       // eslint-disable-next-line global-require
-      const result = await require('cypress-testrail-simple/src/plugin')(on, configCloud, true);
+      await require('cypress-testrail-simple/src/plugin')(on, config);
 
-      const str3 = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
-      console.log(str3);
+      // eslint-disable-next-line spaced-comment
+      await cloudPlugin(on, config);
 
-      // await cloudPlugin(on, config);
-
-      // const enhancedConfig = {
-      //  env: {
-      //     ...config.env,
-      //  },
-      // };
-      // const result = await cloudPlugin(on, enhancedConfig);
-      // await require('cypress-testrail-simple/src/plugin')(on, config);
-      return configCloud;
+      return config;
     },
     baseUrl: 'https://folio-testing-cypress-diku.ci.folio.org',
   },
