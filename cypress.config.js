@@ -84,10 +84,10 @@ module.exports = defineConfig({
         },
       });
 
-      await cloudPlugin(on, config);
+      cloudPlugin(on, config);
       // await testRailPlugin(on, config);
       // eslint-disable-next-line global-require
-      await require('cypress-testrail-simple/src/plugin')(on, config);
+      require('cypress-testrail-simple/src/plugin')(on, config);
 
       return config;
     },
