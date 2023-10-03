@@ -59,11 +59,8 @@ module.exports = defineConfig({
       );
       console.log('--------->>>');
 
-      const str = JSON.stringify(config.env, null, 4); // (Optional) beautiful indented output.
-      console.log(str);
-      console.log('--------->>>');
       allureWriter(on, config);
-      config.env.DEBUG = 'cypress-testrail-simple';
+
       on('task', {
         async findFiles(mask) {
           if (!mask) {
@@ -116,12 +113,10 @@ module.exports = defineConfig({
 
       // eslint-disable-next-line spaced-comment
       const configCloud = await cloudPlugin(on, config);
-      const str1 = JSON.stringify(configCloud.env, null, 4); // (Optional) beautiful indented output.
-      console.log(str1);
+
       // eslint-disable-next-line global-require
       const result = await require('cypress-testrail-simple/src/plugin')(on, configCloud);
-      const str2 = JSON.stringify(result.env, null, 4); // (Optional) beautiful indented output.
-      console.log(str2);
+
       return result;
     },
     baseUrl: 'https://folio-testing-cypress-diku.ci.folio.org',
