@@ -84,10 +84,21 @@ module.exports = defineConfig({
         },
       });
 
-      const configCloud = await cloudPlugin(on, config);
+      const enhancedConfig = {
+        env: {
+          ...config.env, // 👈🏻 preserve the original env
+          customVariable: 'value',
+        },
+      };
+
+      // eslint-disable-next-line spaced-comment
+      //const result = await cloudPlugin(on, enhancedConfig);
+      // eslint-disable-next-line spaced-comment
+      //return result;
+      const configCloud = cloudPlugin(on, enhancedConfig);
 
       // eslint-disable-next-line global-require
-      const configTestRail = await require('cypress-testrail-simple/src/plugin')(on, configCloud);
+      const result = await require('cypress-testrail-simple/src/plugin')(on, configCloud);
 
       // await cloudPlugin(on, config);
 
@@ -98,7 +109,7 @@ module.exports = defineConfig({
       // };
       // const result = await cloudPlugin(on, enhancedConfig);
       // await require('cypress-testrail-simple/src/plugin')(on, config);
-      return configTestRail;
+      return result;
     },
     baseUrl: 'https://folio-testing-cypress-diku.ci.folio.org',
   },
