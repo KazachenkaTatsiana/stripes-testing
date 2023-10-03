@@ -82,11 +82,11 @@ module.exports = defineConfig({
         },
       });
 
-      // eslint-disable-next-line global-require
-      await require('cypress-testrail-simple/src/plugin')(on, config);
-
       // eslint-disable-next-line spaced-comment
       await cloudPlugin(on, config);
+
+      // eslint-disable-next-line global-require
+      await require('cypress-testrail-simple/src/plugin')(on, config);
 
       return config;
     },
