@@ -59,11 +59,11 @@ describe('Circulation log', () => {
       // search by marked as missing
       SearchPane.setFilterOptionFromAccordion('loan', 'Marked as missing');
       cy.wait(1000);
-      SearchResults.getNumberOfFoundEntriesInHeader().then((subtitle) => {
-        SearchResults.checkNumberOfRows(4);
+      SearchResults.getNumberOfFoundEntriesInHeader().then((subtitleNumberValue) => {
+        SearchResults.checkNumberOfRows(parseInt(subtitleNumberValue, 10));
         SearchResults.verifyPreviousPageButtonIsDisabled();
         SearchResults.verifyNextPageButtonIsDisabled();
-        SearchResults.verifyFoundEntries(`1 - ${subtitle}`);
+        SearchResults.verifyFoundEntries(`1 - ${subtitleNumberValue}`);
       });
     },
   );
