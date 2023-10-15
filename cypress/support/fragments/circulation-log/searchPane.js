@@ -26,6 +26,14 @@ const actionsButton = Button('Actions');
 const servicePointField = MultiSelect({
   ariaLabelledby: 'accordion-toggle-button-servicePointId',
 });
+const resetAllButton = Button({ id: 'reset-receiving-filters' });
+const userBarcodeTextField = TextField({ name: 'userBarcode' });
+const itemBarcodeTextField = TextField({ name: 'itemBarcode' });
+const patronLookupButton = Button({ id: 'clickable-plugin-find-user' });
+const descriptionTextField = TextField({ name: 'description' });
+const applyMainFilterButton = Accordion({ id: 'accordion_3' }).find(Button('Apply'));
+const startDateTextField = TextField({ name: 'startDate' });
+const endDateTextField = TextField({ name: 'endDate' });
 
 export default {
   // TODO: will rework to interactor when we get section id
@@ -48,17 +56,17 @@ export default {
   },
 
   searchByItemBarcode(barcode) {
-    cy.do(TextField({ name: 'itemBarcode' }).fillIn(barcode));
+    cy.do(itemBarcodeTextField.fillIn(barcode));
     this.clickApplyMainFilter();
   },
 
   searchByUserBarcode(barcode) {
-    cy.do(TextField({ name: 'userBarcode' }).fillIn(barcode));
+    cy.do(userBarcodeTextField.fillIn(barcode));
     this.clickApplyMainFilter();
   },
 
   searchByDescription(desc) {
-    cy.do(TextField({ name: 'description' }).fillIn(desc));
+    cy.do(descriptionTextField.fillIn(desc));
     this.clickApplyMainFilter();
   },
 
@@ -89,11 +97,15 @@ export default {
 
   setFilterOptionFromAccordion(accordion, checkboxOption) {
     // accordion = 'loan', 'notice', 'fee', 'request'
-    cy.do([Accordion({ id: accordion }).clickHeader(), Checkbox(checkboxOption).click()]);
+    cy.do([
+      Accordion({ id: accordion }).clickHeader(),
+      cy.wait(250),
+      Checkbox(checkboxOption).click(),
+    ]);
   },
 
   resetFilters() {
-    cy.do(Button({ id: 'reset-receiving-filters' }).click());
+    cy.do(resetAllButton.click());
   },
 
   verifyResultCells(verifyDate = false) {
@@ -194,12 +206,8 @@ export default {
     const today = new Date();
 
     return cy.do([
-      TextField({ name: 'endDate' }).fillIn(
-        DateTools.getFormattedDate({ date: today }, 'MM/DD/YYYY'),
-      ),
-      TextField({ name: 'startDate' }).fillIn(
-        DateTools.getFormattedDate({ date: lastWeek }, 'MM/DD/YYYY'),
-      ),
+      endDateTextField.fillIn(DateTools.getFormattedDate({ date: today }, 'MM/DD/YYYY')),
+      startDateTextField.fillIn(DateTools.getFormattedDate({ date: lastWeek }, 'MM/DD/YYYY')),
       Accordion({ id: 'date' }).find(Button('Apply')).click(),
     ]);
   },
@@ -235,5 +243,60 @@ export default {
 
     SearchResults.clickOnCell(barcode, 0);
     ItemRecordView.waitLoading();
+  },
+
+  verifyResetAllButtonIsDisabled() {
+    cy.expect(resetAllButton.is({ disabled: true }));
+  },
+
+  verifyUserBarcodeTextFieldExists() {
+    cy.expect(userBarcodeTextField.exists());
+  },
+
+  verifyItemBarcodeTextFieldExists() {
+    cy.expect(itemBarcodeTextField.exists());
+  },
+
+  verifyPatronLookupButtonExists() {
+    cy.expect(patronLookupButton.exists());
+  },
+
+  verifyDescriptionTextFieldExists() {
+    cy.expect(descriptionTextField.exists());
+  },
+
+  verifyApplyMainFilterButtonExists() {
+    cy.expect(applyMainFilterButton.exists());
+  },
+
+  verifySevicePointDropdownExists() {
+    cy.expect(servicePointField.exists());
+  },
+
+  verifyLoanAccordionExistsAndCollapsed() {
+    cy.expect(Accordion({ id: 'loan' }).is({ open: false }));
+  },
+
+  verifyNoticeAccordionExistsAndCollapsed() {
+    cy.expect(Accordion({ id: 'notice' }).is({ open: false }));
+  },
+
+  verifyFeeFineAccordionExistsAndCollapsed() {
+    cy.expect(Accordion({ id: 'fee' }).is({ open: false }));
+  },
+
+  verifyRequestAccordionExistsAndCollapsed() {
+    cy.expect(Accordion({ id: 'request' }).is({ open: false }));
+  },
+
+  filterByLastYear() {
+    const lastWeek = DateTools.getLastYearDateObj();
+    const today = new Date();
+
+    return cy.do([
+      endDateTextField.fillIn(DateTools.getFormattedDate({ date: today }, 'MM/DD/YYYY')),
+      startDateTextField.fillIn(DateTools.getFormattedDate({ date: lastWeek }, 'MM/DD/YYYY')),
+      Accordion({ id: 'date' }).find(Button('Apply')).click(),
+    ]);
   },
 };

@@ -8,9 +8,12 @@ import {
   MultiColumnListRow,
   Button,
   DropdownMenu,
+  Pane,
 } from '../../../../interactors';
 
 const resultTable = MultiColumnList({ id: 'circulation-log-list' });
+const previousPageButton = Button('Previous');
+const nextPageButton = Button('Next');
 
 export default {
   clickOnCell(content, row) {
@@ -45,5 +48,52 @@ export default {
       MultiColumnListCell({ content: matching(dateRegEx) }),
     );
     return cy.wrap(cell).invoke('content');
+  },
+
+  checkNumberOfRows(numberOfRows) {
+    cy.expect(resultTable.has({ rowCount: numberOfRows }));
+  },
+
+  verifyPreviousPageButtonIsDisabled() {
+    cy.expect(previousPageButton.is({ disabled: true }));
+  },
+
+  verifyPreviousPageButtonIsEnabled() {
+    cy.expect(previousPageButton.is({ disabled: false }));
+  },
+
+  verifyNextPageButtonIsDisabled() {
+    cy.expect(nextPageButton.is({ disabled: true }));
+  },
+
+  verifyNextPageButtonIsEnabled() {
+    cy.expect(nextPageButton.is({ disabled: false }));
+  },
+
+  clickNextPageButton() {
+    cy.do(nextPageButton.click());
+  },
+
+  clickPreviousPageButton() {
+    cy.do(previousPageButton.click());
+  },
+
+  verifyFoundEntries(expectedValue) {
+    cy.get('[class*="prevNextPaginationContainer"] div')
+      .invoke('text')
+      .then((text) => {
+        cy.expect(text).eq(expectedValue);
+      });
+  },
+
+  verifyFirstCirculationIsInFocus() {
+    cy.expect(resultTable.find(MultiColumnListRow({ indexRow: 'row-0' })).is({ visible: true }));
+  },
+
+  getNumberOfFoundEntriesInHeader() {
+    return cy
+      .wrap(Pane({ index: 1 }))
+      .invoke('subtitle')
+      .then((subtitle) => subtitle.match(/\d+/)[0]);
   },
 };
