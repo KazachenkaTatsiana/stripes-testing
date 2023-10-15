@@ -94,6 +94,9 @@ export default {
     return cy
       .wrap(Pane({ index: 1 }))
       .invoke('subtitle')
-      .then((subtitle) => subtitle.match(/\d+/)[0]);
+      .then((subtitle) => {
+        cy.log(subtitle);
+        return subtitle.match(/\d+/)[0];
+      });
   },
 };
