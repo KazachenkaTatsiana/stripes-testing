@@ -701,4 +701,16 @@ export default {
       );
     }
   },
+
+  getMarcAuthoritiesViaApi(searchParams) {
+    return cy
+      .okapiRequest({
+        path: 'search/authorities',
+        searchParams,
+        isDefaultSearchParamsRequired: false,
+      })
+      .then((res) => {
+        return res.body.authorities;
+      });
+  },
 };
