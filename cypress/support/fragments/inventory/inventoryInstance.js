@@ -212,6 +212,16 @@ const verifyAlternativeTitle = (indexRow, indexColumn, value) => {
   );
 };
 
+const verifySeriesStatement = (indexRow, value) => {
+  cy.expect(
+    titleDataAccordion
+      .find(MultiColumnList({ id: 'list-series-statement' }))
+      .find(MultiColumnListRow({ index: indexRow }))
+      .find(MultiColumnListCell())
+      .has({ content: value }),
+  );
+};
+
 const verifyContributor = (indexRow, indexColumn, value) => {
   cy.expect(
     contributorAccordion
@@ -277,6 +287,7 @@ export default {
   waitInstanceRecordViewOpened,
   openItemByBarcode,
   verifyAlternativeTitle,
+  verifySeriesStatement,
   verifyContributor,
   verifyContributorWithMarcAppLink,
 
