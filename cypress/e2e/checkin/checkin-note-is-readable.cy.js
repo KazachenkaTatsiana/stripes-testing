@@ -72,7 +72,10 @@ describe('Accessibility', () => {
             });
           });
       });
-      cy.login(userData.username, userData.password);
+      cy.login(userData.username, userData.password, {
+        path: TopMenu.checkInPath,
+        waiter: CheckInActions.waitLoading,
+      });
     });
   });
 
@@ -98,8 +101,6 @@ describe('Accessibility', () => {
       tags: [TestTypes.criticalPath, DevTeams.vega],
     },
     () => {
-      cy.visit(TopMenu.checkInPath);
-      CheckInActions.waitLoading();
       // Checkin item
       CheckInActions.checkInItemGui(itemBarcode);
       // Check-in note modal is displayed
