@@ -114,6 +114,12 @@ export default {
     );
   },
 
+  editPickupServicePoint() {
+    cy.do(pickupServicePointSelect.choose(this.servicePoint));
+    this.saveAndClose();
+    cy.expect(pickupServicePointKeyValue.has({ value: this.servicePoint }));
+  },
+
   editAndCheckAwaitingDeliveryRequest(instanceRecordData, request) {
     Requests.selectAwaitingDeliveryRequest();
     this.findAndOpenCreatedRequest(instanceRecordData, request);

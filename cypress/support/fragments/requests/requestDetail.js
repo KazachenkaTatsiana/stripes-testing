@@ -82,6 +82,14 @@ export default {
     ]);
   },
 
+  checkItemBarcode: (barcode) => {
+    requesterInfoSection.find(KeyValue('Item barcode', { value: barcode })).exists();
+  },
+
+  checkRequestsCount: (count) => {
+    requesterInfoSection.find(KeyValue('Requests on item', { value: count })).exists();
+  },
+
   checkRequesterInformation: (data) => {
     cy.expect([
       requesterInfoSection.find(Heading('Requester')).exists(),
@@ -118,8 +126,8 @@ export default {
     );
   },
 
-  openItemByBarcode() {
-    cy.do(itemInformationSection.find(Link()).click());
+  openItemByBarcode(barcode = '') {
+    cy.do(itemInformationSection.find(Link(including(barcode))).click());
     ItemRecordView.waitLoading();
   },
 };
